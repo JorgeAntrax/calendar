@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clases con Es6</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="kimera.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="app" class="is-text-center color-light padding-3">Calendar pícker</h1>
+    <row-multiline>
+        <div id="demo" class="calendar-picker margin-1 is-primary">
+            <input type="text" class="input">
+        </div>
+        <div id="demo1" class="calendar-picker margin-1 is-info">
+            <input type="text" class="input">
+        </div>
+        <div id="demo2" class="calendar-picker margin-1 is-success">
+            <input type="text" class="input">
+        </div>
+        <div id="demo3" class="calendar-picker margin-1 is-warning">
+            <input type="text" class="input">
+        </div>
+        <div id="demo4" class="calendar-picker margin-1 is-danger">
+            <input type="text" class="input">
+        </div>
+    </row-multiline>
+    <script src="app.js"></script>
+    <script>
+        var app = new kmCalendar({
+            el: '#demo',
+            value: '10/4/2018'
+        });
+        var app1 = new kmCalendar({
+            el: '#demo1',
+            value: '10/11/2018'
+        });
+        var app2 = new kmCalendar({
+            el: '#demo2',
+            value: '10/5/2018'
+        });
+        var app3 = new kmCalendar({
+            el: '#demo3',
+            value: '10/8/2018'
+        });
+        var app4 = new kmCalendar({
+            el: '#demo4',
+            value: '10/2/2018'
+        });
+    </script>
+</body>
+
+</html>

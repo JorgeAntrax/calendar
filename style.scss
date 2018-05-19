@@ -1,0 +1,127 @@
+.calendar-picker {
+    &.is-primary .calendar-controls,
+    &.is-primary .is-active {
+        background-color: #22adff;
+    }
+    &.is-info .calendar-controls,
+    &.is-info .is-active {
+        background-color: #2264C8;
+    }
+    &.is-success .calendar-controls,
+    &.is-success .is-active {
+        background-color: #22C85C;
+    }
+    &.is-warning .calendar-controls,
+    &.is-warning .is-active {
+        background-color: #ffd232;
+        color: #666 !important;
+    }
+    &.is-danger .calendar-controls,
+    &.is-danger .is-active {
+        background-color: #ff0050;
+    }
+    &.is-primary,
+    &.is-info,
+    &.is-success,
+    &.is-warning,
+    &.is-danger {
+        & .calendar-controls,
+        & .is-active {
+            color: #fff;
+        }
+    }
+    &,
+    .calendar {
+        display: inline-flex;
+        flex-direction: column;
+    }
+    .calendar {
+        &.is-hidden {
+            display: none !important;
+        }
+        min-width: 300px;
+        max-width: 400px;
+        box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+        user-select: none;
+        * {
+            font-size: 0.7rem;
+        }
+        &-controls,
+        .label-grid-days,
+        &-control-month,
+        &-control-year,
+        &-label {
+            display: flex;
+        }
+        &-controls {
+            padding: 1rem;
+            align-items: center;
+            text-transform: uppercase;
+            .calendar-control-month,
+            .calendar-control-year {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                span {
+                    text-align: center;
+                }
+            }
+        }
+        &-controls,
+        .label-grid-days,
+        &-label {
+            align-items: center;
+            justify-content: space-between;
+        }
+        .label-grid-days {
+            padding-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0.6;
+            color: #333;
+        }
+        & button {
+            max-width: 2rem;
+            max-height: 2rem;
+            width: 2rem;
+            height: 2rem;
+            color: #666;
+        }
+        &-controls button {
+            background-color: transparent;
+        }
+        &-label {
+            justify-content: center;
+            font-size: 5rem;
+            line-height: 2rem;
+            padding: 0 1rem;
+        }
+        &-label-control {
+            font-size: 1.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &-control-item {
+            padding: 0.15rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all .2s ease;
+            &:hover {
+                background-color: rgba(0, 0, 0, .15);
+            }
+        }
+        &-grid {
+            padding: 1rem 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            justify-items: center;
+            align-items: center;
+            button {
+                margin-top: 0.25rem;
+                &[disabled] {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
