@@ -30,19 +30,31 @@
             color: #fff;
         }
     }
+    position: relative;
     &,
     .calendar {
         display: inline-flex;
         flex-direction: column;
     }
+    .input {
+        min-width: 300px;
+    }
     .calendar {
-        &.is-hidden {
-            display: none !important;
-        }
+        max-height: 0;
         min-width: 300px;
         max-width: 400px;
         box-shadow: 0 5px 10px -2px rgba(0, 0, 0, .2);
+        overflow: hidden;
         user-select: none;
+        transition: max-height .2s ease;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: #fff;
+        z-index: 1000;
+        &.is-visible {
+            max-height: 100vh;
+        }
         * {
             font-size: 0.7rem;
         }
