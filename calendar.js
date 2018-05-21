@@ -1,11 +1,15 @@
 'use strict';
 
-
 class kmCalendar {
     constructor(o) {
         this.el = document.querySelector(o.el);
         this.el.innerHTML = `
-				<input type="text" class="input" name="${o.inputName}" id="${o.inputId}">
+				<field>
+					<control class="is-icon-${o.iconPosition}">
+						<input type="text" class="input is-${o.style}" name="${o.inputName}" id="${o.inputId}">
+						<icon class="toggle-calendar"><i class="${o.classIconInput}"></i></icon>
+					</control>
+				</field>
 				<div class="calendar">
 					<div class="calendar-controls">
 						<div class="calendar-control-month">
@@ -31,8 +35,10 @@ class kmCalendar {
 					</div>
 				</div>
 			`;
+        this.el.classList.add('is-' + o.style);
         this.value = o.value.split('/');
         this.input = this.el.querySelector('.input');
+        this.toggle = this.el.querySelector('.toggle-calendar');
         this.labelMonth = this.el.querySelector('.calendar-control-month .calendar-label-control');
         this.labelYear = this.el.querySelector('.calendar-control-year .calendar-label-control');
         this.controlsMonth = this.el.querySelectorAll('.calendar-control-month .calendar-control-item');
@@ -44,6 +50,7 @@ class kmCalendar {
 
 
     init() {
+        this
         kmCalendar.setDay(parseInt(this.value[0]));
         kmCalendar.setMonth(parseInt(this.value[1]));
         kmCalendar.setYear(parseInt(this.value[2]));
@@ -52,7 +59,7 @@ class kmCalendar {
         kmCalendar.updateMonth(this.labelMonth);
         kmCalendar.updateYear(this.labelYear);
 
-        this.watchInput(this.el, this.input);
+        this.watchInput(this.el, this.toggle);
         this.watchMonths(this.controlsMonth);
         this.watchYear(this.controlsYear);
     }
@@ -64,7 +71,8 @@ class kmCalendar {
             anio = kmCalendar.getYear,
             forMes = 0,
             calendar = grid.parentElement,
-            buttons, day, index, btn;
+            buttons = grid.querySelectorAll('button'),
+            day, index, btn;
 
         fecha.setFullYear(anio, mes, 1);
         day = fecha.getDay();
@@ -77,13 +85,15 @@ class kmCalendar {
             forMes = 30;
         }
 
-        if (buttons != undefined) {
+
+        kmCalendar.updateLabel(label);
+
+        if (buttons !== undefined) {
             buttons.forEach(btn => {
                 btn.remove();
             });
         }
 
-        kmCalendar.updateLabel(label);
         for (index = 1; index <= forMes; index++) {
             btn = document.createElement('button');
             btn.classList.add('is-rounded');
@@ -97,13 +107,14 @@ class kmCalendar {
             }
             grid.appendChild(btn);
         }
+
         buttons = grid.querySelectorAll('button');
         buttons[0].style.gridColumnStart = day + 1;
         kmCalendar.watchCalendar(el, label, buttons, input, calendar);
     }
 
-    watchInput(el, input) {
-        input.addEventListener('click', function() {
+    watchInput(el, toggle) {
+        toggle.addEventListener('click', function() {
             el.querySelector('.calendar').classList.toggle('is-visible');
         }, false);
     }
