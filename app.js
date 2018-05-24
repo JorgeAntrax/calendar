@@ -1,17 +1,19 @@
 var app = new kmCalendar({
-    el: '#demo', // Id del contenedor calendar-picker
-    value: '10/4/2018', // valor inicial del calendario
-    inputName: '', // atributo name para el elemento input
-    inputId: '', // id para el elemento input
-    style: 'primary', // estilo del calendario : primary, info, success, warning, danger
-    classIconPrev: 'fa fa-caret-up', // icono que se visualiza al cambiar al mes o año anterior
-    classIconNext: 'fa fa-caret-down', // icono que se visualiza al cambiar al mes o año siguiente
-    classIconInput: 'fa fa-calendar', // icono posicionado aun lado del input el cual hace toggle en el calendario
-    iconPosition: 'left' //posicion el icono que hace toggle en el calendario
+    el: '#demo',
+    value: '10/4/2018',
+    languaje: 'es',
+    inputName: '',
+    inputId: '',
+    style: 'primary',
+    classIconPrev: 'fa fa-caret-up',
+    classIconNext: 'fa fa-caret-down',
+    classIconInput: 'fa fa-calendar',
+    iconPosition: 'left'
 });
 var app1 = new kmCalendar({
     el: '#demo1',
     value: '01/11/2018',
+    languaje: 'us',
     inputName: '',
     inputId: '',
     style: 'info',
@@ -23,6 +25,7 @@ var app1 = new kmCalendar({
 var app2 = new kmCalendar({
     el: '#demo2',
     value: '10/5/2018',
+    languaje: 'es',
     inputName: '',
     inputId: '',
     style: 'success',
@@ -34,6 +37,7 @@ var app2 = new kmCalendar({
 var app3 = new kmCalendar({
     el: '#demo3',
     value: '15/8/2018',
+    languaje: 'es',
     inputName: '',
     inputId: '',
     style: 'warning',
@@ -45,6 +49,7 @@ var app3 = new kmCalendar({
 var app4 = new kmCalendar({
     el: '#demo4',
     value: '20/2/2018',
+    languaje: 'es',
     inputName: 'namedemo',
     inputId: 'input123',
     style: 'danger',
